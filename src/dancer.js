@@ -32,24 +32,26 @@
 // };
 
 var makeDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+  this.$nodeRick = $('<span class="dancer"><img class = "dancer rick" src = "https://thumbs.gfycat.com/AntiqueHarmoniousCuscus-max-1mb.gif"></span>');
+  this.$nodeBrian = $('<span class="dancer"><img class = "dancer brian" src = "https://media.giphy.com/media/IUu7swWWXfeyk/giphy.gif"></span>');
+  this.$nodeBender = $('<span class="dancer"><img class = "dancer bender" src = "https://julianish.files.wordpress.com/2013/03/bender13.gif"></span>')
+
   this.step();
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;
 };
 
 makeDancer.prototype.step = function() {
-  // the basic dancer doesn't do anything interesting at all on each step,
-  // it just schedules the next step
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
 makeDancer.prototype.setPosition = function(top, left) {
-  // Use css top and left properties to position our <span> tag
-  // where it belongs on the page. See http://api.jquery.com/css/
   var styleSettings = {
     top: top,
     left: left
   };
-  this.$node.css(styleSettings);
+  this.$nodeRick.css(styleSettings);
+  this.$nodeBrian.css(styleSettings);
+  this.$nodeBender.css(styleSettings);
+
 };

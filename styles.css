@@ -3,53 +3,72 @@ body, html{
 }
 body{
   margin: 0px;
-  background-image: url("https://pbs.twimg.com/media/DFH4SV3XoAA5Vlj.jpg");
-  background-repeat: no-repeat;    
+  background-image: url("http://i.imgur.com/v1mR98F.jpg");
+  background-repeat: no-repeat;
   background-size: 100%;
-
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: rgb(33, 11, 83);
 }
-header {
-  position: absolute;
-  margin-top: 100px; 
-  padding-left: 25em;
-  z-index: 1;
-}
-.white-banner {
-  position: absolute;
-  height: 120px;
-  width: 100%;
-  margin-top: 100px; 
-  padding-left: 25em;
-  background-color: white;
-  opacity: .7;
-  z-index: -1;
 
+.header-container{
+  background-color: white;
+  opacity: 1;
 }
-.title {
+
+header {
+  margin-left: 22em;
+  margin-top: 5em;
+  margin-right: 19em;
+  border-style: solid;
+  border-width: 0.5em;
+  border-color: yellow;
+}
+.title, .blink {
   font-family: 'Fredoka One', cursive;
-  /*background-color: white;*/
-  color: purple;
+  color: black;
   font-size: 5em;
   opacity: 1;
 }
-.danceCats {
+.dancingTina {
   height: 5em;
 }
 .addDancerButton{
-  padding:5px 12px;
-  float:right;
+  border-style: solid;
+  background-color: white;
+  font-family: sans-serif;
+  text-decoration:none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.method{
+  border-style: solid;
+  background-color: white;
+  font-family: sans-serif;
+  text-decoration:none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.bottombar{
+  height:32px;
+  margin-left: 36em;
+  margin-top: 0.3em;
+}
+
+a:hover{
+  background-color: yellow;
 }
 .topbar{
   height:32px;
-  /*background-color: #555;*/
-}
-.dancer{
-  border:10px solid black;
-  border-radius:10px;
-  position:absolute;
+  margin-left: 30em;
+  margin-top: 1em;
 }
 
+.dancer{
+
+  position:absolute;
+  height: 10em;
+}
