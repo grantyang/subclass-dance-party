@@ -20,14 +20,19 @@
 
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps, "https://media.giphy.com/media/IUu7swWWXfeyk/giphy.gif");
+  this.degree = 0;
 };
 
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
 makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 
-makeBlinkyDancer.prototype.step = function(degree) {
-  degree += 5;
-
-  $(this.$node).css({ 'transform': 'rotate(20deg)' });  
-  makeDancer.prototype.step.call(this, degree);
+makeBlinkyDancer.prototype.step = function() {
+  // function rotateBrian () {
+  //   console.log('calling rotate')
+  //   return this.degree += 180;
+  // };
+  // rotateBrian();
+  // debugger
+  $(this.$node).css({ 'transform': `rotate(${180}deg)` });  
+  makeDancer.prototype.step.call(this);
 };

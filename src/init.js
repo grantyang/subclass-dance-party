@@ -18,12 +18,7 @@ $(document).ready(function () {
 
   $('.bounce').on('click', function (event) {
     window.dancers.forEach((dancer, index) => {
-      dancer.bounce(true)
-    });
-  })
-  $('.stop').on('click', function (event) {
-    window.dancers.forEach((dancer, index) => {
-      dancer.bounce(false)
+      dancer.bounce()
     });
   })
 

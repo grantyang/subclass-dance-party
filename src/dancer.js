@@ -58,8 +58,6 @@ makeDancer.prototype.assignNode = function (URL) {
 }
 
 makeDancer.prototype.bounce = function (stop) {
-  console.log('bounce running')
-
   var settings = {
     speed: 10
   };
@@ -84,38 +82,59 @@ makeDancer.prototype.bounce = function (stop) {
     });
 
     var move = function ($e) {
-      var offset = $e.offset(),
-        width = $e.width(),
-        height = $e.height(),
-        vector = $e.data('vector'),
-        $parent = $e.parent();
+      var leftPx = parseInt($e.css('left'))
+      var topPx = parseInt($e.css('top'))
+      for (var dancer of window.dancers) {
+        if (dancer.$node !== $e) { //make sure to not compare with self
+          var dancerLeftPx = parseInt(dancer.$node.css('left'));
+          var dancerTopPx = parseInt(dancer.$node.css('top'));
+          if (Math.abs(leftPx - dancerLeftPx) < 50 && Math.abs(topPx - dancerTopPx) < 50) { //if top left corner is close enough to other dancer, remove
+            dancer.$node.remove();
+            $e.remove();
+            let index = window.dancers.indexOf(dancer);
+            window.dancers.splice(index,1);
+            index = window.dancers.findIndex((dancer) => dancer.$node === $e);
+            window.dancers.splice(index,1);
+            return;
+          }
+        }
 
-      if (offset.left <= 0 && vector.x < 0) {
-        vector.x = -1 * vector.x;
       }
-      if ((offset.left + width) >= $parent.width()) {
-        vector.x = -1 * vector.x;
-      }
-      if (offset.top <= 0 && vector.y < 0) {
-        vector.y = -1 * vector.y;
-      }
-      if ((offset.top + height) >= $parent.height()) {
-        vector.y = -1 * vector.y;
-      }
+      if ($e.data('vector') !== undefined) {
+        var offset = $e.offset(),
+          width = $e.width(),
+          height = $e.height(),
+          vector = $e.data('vector'),
+          $parent = $e.parent();
 
-      $e.css({
-        'top': offset.top + vector.y + 'px',
-        'left': offset.left + vector.x + 'px'
-      }).data('vector', {
-        'x': vector.x,
-        'y': vector.y
-      });
+        if (offset.left <= 0 && vector.x < 0) {
+          vector.x = -1 * vector.x;
+        }
+        if ((offset.left + width) >= $parent.width()) {
+          vector.x = -1 * vector.x;
+        }
+        if (offset.top <= 0 && vector.y < 0) {
+          vector.y = -1 * vector.y;
+        }
+        if ((offset.top + height) >= $parent.height()) {
+          vector.y = -1 * vector.y;
+        }
 
-      setTimeout(function () {
-        move($e);
-      }, 5);
+        $e.css({
+          'top': offset.top + vector.y + 'px',
+          'left': offset.left + vector.x + 'px'
+        }).data('vector', {
+          'x': vector.x,
+          'y': vector.y
+        });
 
-    };
+        setTimeout(function () {
+          move($e);
+        }, 5);
+
+      };
+    }
+
     move(this.$node);
   });
 };
