@@ -1,20 +1,19 @@
 
 
 var makeGrowyDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
-  
+  makeDancer.call(this, top, left, timeBetweenSteps, "https://thumbs.gfycat.com/AntiqueHarmoniousCuscus-max-1mb.gif");
 };
 
 makeGrowyDancer.prototype = Object.create(makeDancer.prototype);
 makeGrowyDancer.prototype.constructor = makeGrowyDancer;
 
 makeGrowyDancer.prototype.step = function() {
-  this.$nodeRick.animate({
+  this.$node.animate({
     width: "+=30%",
     height: "+=30%",
   }, 1500 );
 
-  this.$nodeRick.animate({
+  this.$node.animate({
     width: "-=30%",
     height: "-=30%",
   }, 3000 );

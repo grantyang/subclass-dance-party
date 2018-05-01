@@ -15,12 +15,13 @@ body, a:link, a:visited, a:active{
 .header-container{
   background-color: white;
   opacity: 1;
+  padding-left: 15px;
 }
 
 header {
-  margin-left: 22em;
-  margin-top: 5em;
-  margin-right: 19em;
+  margin-left: 30%;
+  margin-top: 5%;
+  width: 700px;
   border-style: solid;
   border-width: 0.5em;
   border-color: yellow;
@@ -30,6 +31,7 @@ header {
   color: black;
   font-size: 5em;
   opacity: 1;
+  justify-content: center;
 }
 .dancingTina {
   height: 5em;
@@ -54,7 +56,7 @@ header {
 
 .bottombar{
   height:32px;
-  margin-left: 36em;
+  margin-left: 46%;
   margin-top: 0.3em;
 }
 
@@ -63,12 +65,14 @@ a:hover{
 }
 .topbar{
   height:32px;
-  margin-left: 30em;
+  margin-left: 40%;
   margin-top: 1em;
 }
 
 .dancer{
-
   position:absolute;
+}
+
+.dancerImg{
   height: 10em;
 }

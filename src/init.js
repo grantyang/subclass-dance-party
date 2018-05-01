@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
   window.dancers = [];
 
-  $('.addDancerButton').on('click', function(event) {
+  $('.addDancerButton').on('click', function (event) {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
     var dancerMakerFunction = window[dancerMakerFunctionName];
@@ -13,21 +13,24 @@ $(document).ready(function() {
     );
 
     window.dancers.push(dancer);
-
-    if (dancerMakerFunctionName === 'makeGrowyDancer') {
-      $('body').append(dancer.$nodeRick);
-    } else if (dancerMakerFunctionName === 'makeBlinkyDancer') {
-      $('body').append(dancer.$nodeBrian);
-    } else if (dancerMakerFunctionName === 'makeFlippyDancer') {
-      $('body').append(dancer.$nodeBender);
-    }
+    $('body').append(dancer.$node);
   });
 
-
-  $('.lineUp').on('click', function(event) {
+  $('.bounce').on('click', function (event) {
     window.dancers.forEach((dancer, index) => {
-      dancer.setPosition(index, 0);
+      dancer.bounce(true)
+    });
+  })
+  $('.stop').on('click', function (event) {
+    window.dancers.forEach((dancer, index) => {
+      dancer.bounce(false)
+    });
+  })
+
+  $('.lineUp').on('click', function (event) {
+    window.dancers.forEach((dancer, index) => {
+      dancer.setPosition('50%', ((100 / window.dancers.length) * index + 1).toString() + '%');
     })
   })
-});
 
+});

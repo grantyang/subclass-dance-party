@@ -31,27 +31,91 @@
 //   return dancer;
 // };
 
-var makeDancer = function(top, left, timeBetweenSteps) {
-  this.$nodeRick = $('<span class="dancer"><img class = "dancer rick" src = "https://thumbs.gfycat.com/AntiqueHarmoniousCuscus-max-1mb.gif"></span>');
-  this.$nodeBrian = $('<span class="dancer"><img class = "dancer brian" src = "https://media.giphy.com/media/IUu7swWWXfeyk/giphy.gif"></span>');
-  this.$nodeBender = $('<span class="dancer"><img class = "dancer bender" src = "https://julianish.files.wordpress.com/2013/03/bender13.gif"></span>')
-
+var makeDancer = function (top, left, timeBetweenSteps, URL) {
+  this.$node;
+  this.assignNode(URL);
   this.step();
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;
 };
 
-makeDancer.prototype.step = function() {
+makeDancer.prototype.step = function () {
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
-makeDancer.prototype.setPosition = function(top, left) {
+makeDancer.prototype.setPosition = function (top, left) {
   var styleSettings = {
     top: top,
     left: left
   };
-  this.$nodeRick.css(styleSettings);
-  this.$nodeBrian.css(styleSettings);
-  this.$nodeBender.css(styleSettings);
 
+  this.$node.css(styleSettings);
+
+};
+
+makeDancer.prototype.assignNode = function (URL) {
+  this.$node = $(`<span class="dancer"><img class="dancerImg" src = ${URL}></span>`)
+}
+
+makeDancer.prototype.bounce = function (stop) {
+  console.log('bounce running')
+
+  var settings = {
+    speed: 10
+  };
+
+  return $(this).each(function () {
+
+    var $this = this.$node,
+      $parent = $(document.body),
+      height = $parent.height(),
+      width = $parent.width(),
+      top = Math.floor(Math.random() * (height / 2)) + height / 4,
+      left = Math.floor(Math.random() * (width / 2)) + width / 4,
+      vectorX = settings.speed * (Math.random() > 0.5 ? 1 : -1),
+      vectorY = settings.speed * (Math.random() > 0.5 ? 1 : -1);
+
+    $this.css({
+      'top': top,
+      'left': left
+    }).data('vector', {
+      'x': vectorX,
+      'y': vectorY
+    });
+
+    var move = function ($e) {
+      var offset = $e.offset(),
+        width = $e.width(),
+        height = $e.height(),
+        vector = $e.data('vector'),
+        $parent = $e.parent();
+
+      if (offset.left <= 0 && vector.x < 0) {
+        vector.x = -1 * vector.x;
+      }
+      if ((offset.left + width) >= $parent.width()) {
+        vector.x = -1 * vector.x;
+      }
+      if (offset.top <= 0 && vector.y < 0) {
+        vector.y = -1 * vector.y;
+      }
+      if ((offset.top + height) >= $parent.height()) {
+        vector.y = -1 * vector.y;
+      }
+
+      $e.css({
+        'top': offset.top + vector.y + 'px',
+        'left': offset.left + vector.x + 'px'
+      }).data('vector', {
+        'x': vector.x,
+        'y': vector.y
+      });
+
+      setTimeout(function () {
+        move($e);
+      }, 5);
+
+    };
+    move(this.$node);
+  });
 };

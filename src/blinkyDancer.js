@@ -19,15 +19,15 @@
 // };
 
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
-  
+  makeDancer.call(this, top, left, timeBetweenSteps, "https://media.giphy.com/media/IUu7swWWXfeyk/giphy.gif");
 };
 
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
 makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 
-makeBlinkyDancer.prototype.step = function() {
+makeBlinkyDancer.prototype.step = function(degree) {
+  degree += 5;
 
-  this.$nodeBrian.toggle();  
-  makeDancer.prototype.step.call(this);
+  $(this.$node).css({ 'transform': 'rotate(20deg)' });  
+  makeDancer.prototype.step.call(this, degree);
 };
