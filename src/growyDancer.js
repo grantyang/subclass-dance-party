@@ -9,12 +9,12 @@ makeGrowyDancer.prototype = Object.create(makeDancer.prototype);
 makeGrowyDancer.prototype.constructor = makeGrowyDancer;
 
 makeGrowyDancer.prototype.step = function() {
-  this.$node.animate({
+  this.$nodeRick.animate({
     width: "+=30%",
     height: "+=30%",
   }, 1500 );
 
-  this.$node.animate({
+  this.$nodeRick.animate({
     width: "-=30%",
     height: "-=30%",
   }, 3000 );
