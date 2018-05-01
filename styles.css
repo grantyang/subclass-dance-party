@@ -3,20 +3,38 @@ body, html{
 }
 body{
   margin: 0px;
-  /*background-color:#444;*/
+  background-image: url("https://pbs.twimg.com/media/DFH4SV3XoAA5Vlj.jpg");
+  background-repeat: no-repeat;    
+  background-size: 100%;
+
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
 header {
+  position: absolute;
+  margin-top: 100px; 
   padding-left: 25em;
+  z-index: 1;
+}
+.white-banner {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+  margin-top: 100px; 
+  padding-left: 25em;
+  background-color: white;
+  opacity: .7;
+  z-index: -1;
+
 }
 .title {
   font-family: 'Fredoka One', cursive;
-  background-color: white;
-  color: black;
+  /*background-color: white;*/
+  color: purple;
   font-size: 5em;
+  opacity: 1;
 }
 .danceCats {
   height: 5em;
@@ -30,7 +48,8 @@ header {
   /*background-color: #555;*/
 }
 .dancer{
-  border:10px solid red;
+  border:10px solid black;
   border-radius:10px;
   position:absolute;
 }
+

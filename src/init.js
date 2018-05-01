@@ -29,6 +29,10 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
   });
-    $('.title').animate()
+
+  $('.deleteDancerButton').on('click', function(event) {
+    console.log('delete')
+  });
+    // $('.title').animate()
 });
 
