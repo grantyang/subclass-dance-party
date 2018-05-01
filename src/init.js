@@ -24,12 +24,8 @@ $(document).ready(function() {
   });
 
   $('.lineUp').on('click', function(event) {
-    console.log(window.dancers)
-    window.dancers.forEach( dancer => {
-      console.log(dancer)
-      if (dancer == 'makeGrowyDancer') {
-        console.log('hello')
-      }
+    window.dancers.forEach((dancer, index) => {
+      dancer.setPosition(index, 0);
     })
   })
     
