@@ -32,7 +32,7 @@
 // };
 
 var makeDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<span class="dancer"><img class = "dancer" src = "https://media1.tenor.com/images/85cd2c931c31a832b6737bff3588983f/tenor.gif?itemid=5057862"></span>');
   this.step();
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps;

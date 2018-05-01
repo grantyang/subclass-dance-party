@@ -3,14 +3,16 @@ body, html{
 }
 body{
   margin: 0px;
-  /*background-color:#444;*/
+  background-image: url("https://i.pinimg.com/originals/c6/d8/02/c6d80271f133ed7780ccab4ade470b9a.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
 header {
-  padding-left: 25em;
+  padding-left: 22em;
 }
 .title {
   font-family: 'Fredoka One', cursive;
@@ -18,7 +20,7 @@ header {
   color: black;
   font-size: 5em;
 }
-.danceCats {
+.dancingTina {
   height: 5em;
 }
 .addDancerButton{
@@ -30,7 +32,5 @@ header {
   /*background-color: #555;*/
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
   position:absolute;
 }
