@@ -26,6 +26,11 @@ $(document).ready(function () {
     window.dancers.forEach((dancer, index) => {
       dancer.setPosition('50%', ((100 / window.dancers.length) * index + 1).toString() + '%');
     })
+  });
+
+  $(document).on('mouseover', '.brian', function (event) {
+    console.log(this)
+    $(this).css({ 'transform': `rotate(${0}deg)` });
   })
 
 });

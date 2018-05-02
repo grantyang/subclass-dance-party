@@ -1,6 +1,6 @@
 
 var makeFlippyDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps, 'https://julianish.files.wordpress.com/2013/03/bender13.gif');
+  makeDancer.call(this, top, left, timeBetweenSteps, 'https://julianish.files.wordpress.com/2013/03/bender13.gif', 'bender');
 };
 
 makeFlippyDancer.prototype = Object.create(makeDancer.prototype);

@@ -1,7 +1,5 @@
-
-
 var makeGrowyDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps, "https://thumbs.gfycat.com/AntiqueHarmoniousCuscus-max-1mb.gif");
+  makeDancer.call(this, top, left, timeBetweenSteps, "https://thumbs.gfycat.com/AntiqueHarmoniousCuscus-max-1mb.gif", 'rick');
 };
 
 makeGrowyDancer.prototype = Object.create(makeDancer.prototype);
